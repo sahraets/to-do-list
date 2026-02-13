@@ -13,11 +13,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if(taskText == "") return;
 
         const li = document.createElement("li");
-        
-        li.textContent = taskText;
+        const span = document.createElement("span");
+        span.textContent = taskText;
 
-        list.appendChild(li);
-       
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "X";
+        
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        list.appendChild(li)
+
+        deleteBtn.addEventListener("click", function() {
+            li.remove();
+        })
+        
         input.value = "";
     });
 
